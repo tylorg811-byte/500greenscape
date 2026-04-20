@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Contact | GreenScape Landscaping</title>
-<meta name="description" content="Get a free landscaping quote today.">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+  <title>Contact | GreenScape Landscaping</title>
+  <meta name="description" content="Get a free landscaping quote today.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
 <nav>
   <div><strong>GreenScape</strong></div>
+
   <div>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
@@ -20,17 +23,26 @@
 </nav>
 
 <div class="container">
-  <h1>Get a Free Quote</h1>
+  <h2>Get a Free Quote</h2>
 
-  <form action="https://formspree.io/f/xwkgbqyo" method="POST" class="card">
-    <input type="text" name="name" placeholder="Name" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
-    <textarea name="message" placeholder="What do you need?" required></textarea><br><br>
-    <button class="btn" type="submit">Send</button>
+  <form action="https://formspree.io/f/xwkgbqyo" method="POST">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" placeholder="What do you need done?" required></textarea>
+
+    <button class="btn" type="submit">Send Request</button>
+
   </form>
 </div>
 
-<footer>© 2026 GreenScape Landscaping</footer>
+<footer>
+  © 2026 GreenScape Landscaping
+</footer>
+
+<script src="./script.js"></script>
 
 </body>
 </html>
