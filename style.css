@@ -62,18 +62,30 @@ nav a:hover {
 
 .hero-content {
   position: relative;
-  max-width: 700px;
+  max-width: 750px;
   padding: 20px;
   animation: fadeUp 1s ease forwards;
+  z-index: 2;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 600px;
+  margin: auto;
+}
+
+/* optional glow effect for readability */
+.hero h1, .hero p {
+  text-shadow: 0 3px 15px rgba(0,0,0,0.6);
 }
 
 /* BUTTON */
@@ -94,6 +106,11 @@ nav a:hover {
 .btn:hover {
   background: #2f6537;
   transform: translateY(-3px);
+}
+
+.hero .btn {
+  margin-top: 20px;
+  box-shadow: 0 8px 20px rgba(58, 125, 68, 0.4);
 }
 
 /* LAYOUT */
