@@ -9,13 +9,38 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
+body{font-family:'Montserrat',sans-serif;background:#f7f7f7;}
 
-nav{position:fixed;top:0;width:100%;height:70px;background:white;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
-.logo{font-weight:800;font-size:1.5rem;color:#2e7d32;}
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:70px;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+  z-index:9999;
+}
+
+.logo{font-weight:800;font-size:1.5rem;}
 .menu-toggle{font-size:1.8rem;cursor:pointer;}
 
-.nav-links{position:fixed;top:70px;width:100%;background:white;display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px 0;display:none;}
+.nav-links{
+  position:fixed;
+  top:70px;
+  width:100%;
+  background:white;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  padding:25px 0;
+  z-index:9999;
+}
+
 .nav-links.active{display:flex;}
 
 .gallery{
@@ -27,6 +52,8 @@ nav{position:fixed;top:0;width:100%;height:70px;background:white;display:flex;ju
 
 .gallery img{
   width:100%;
+  height:220px;
+  object-fit:cover;
   border-radius:12px;
 }
 </style>
@@ -40,22 +67,29 @@ nav{position:fixed;top:0;width:100%;height:70px;background:white;display:flex;ju
 </nav>
 
 <div class="nav-links" id="menu">
-  <a href="/500greenscape/index.html">Home</a>
-  <a href="/500greenscape/services.html">Services</a>
-  <a href="/500greenscape/work.html">Work</a>
-  <a href="/500greenscape/contact.html">Get Quote</a>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="work.html">Work</a>
+  <a href="contact.html">Get Quote</a>
 </div>
 
 <div class="gallery">
-  <img src="https://images.unsplash.com/photo-1599696848652-f0ff23bc911f">
-  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-  <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+  <img src="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62">
+  <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
+  <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
+  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
 </div>
 
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
+
+document.querySelectorAll("#menu a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    document.getElementById("menu").classList.remove("active");
+  });
+});
 </script>
 
 </body>
