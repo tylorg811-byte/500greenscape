@@ -22,12 +22,13 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(255,255,255,0.9);
+  height:70px; /* 🔥 fixed height */
+  background:rgba(255,255,255,0.95);
   backdrop-filter:blur(10px);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:16px 20px;
+  padding:0 20px;
   z-index:1000;
 }
 
@@ -44,41 +45,47 @@ nav{
 .menu-toggle{
   font-size:1.8rem;
   cursor:pointer;
-  display:block;
 }
 
-/* NAV LINKS (HIDDEN BY DEFAULT) */
+/* DROPDOWN MENU */
 .nav-links{
-  position:absolute;
-  top:70px;
+  position:fixed;
+  top:70px; /* 🔥 sits BELOW nav now */
   left:0;
   width:100%;
   background:white;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:20px;
-  padding:20px 0;
-  transform:translateY(-120%);
+  gap:22px;
+  padding:25px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+  opacity:0;
+  transform:translateY(-20px);
+  pointer-events:none;
   transition:0.3s;
 }
 
-/* SHOW MENU */
+/* ACTIVE MENU */
 .nav-links.active{
+  opacity:1;
   transform:translateY(0);
+  pointer-events:auto;
 }
 
 .nav-links a{
   text-decoration:none;
   color:#222;
   font-weight:600;
+  font-size:1.1rem;
 }
 
 /* BUTTON */
 .nav-btn{
   background:linear-gradient(135deg,#56ab2f,#2e7d32);
   color:white;
-  padding:12px 22px;
+  padding:12px 24px;
   border-radius:999px;
   box-shadow:0 6px 20px rgba(0,0,0,0.2);
 }
@@ -90,7 +97,7 @@ nav{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:110px 20px 40px;
+  padding:90px 20px 40px;
   position:relative;
   overflow:hidden;
 }
@@ -186,16 +193,16 @@ h2{text-align:center;margin-bottom:40px;}
 <!-- NAV -->
 <nav>
   <div class="logo">GreenScape</div>
-
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-  <div class="nav-links" id="menu">
-    <a href="/500greenscape/index.html">Home</a>
-    <a href="/500greenscape/services.html">Services</a>
-    <a href="/500greenscape/work.html">Work</a>
-    <a href="/500greenscape/contact.html" class="nav-btn">Get Quote</a>
-  </div>
 </nav>
+
+<!-- DROPDOWN -->
+<div class="nav-links" id="menu">
+  <a href="/500greenscape/index.html">Home</a>
+  <a href="/500greenscape/services.html">Services</a>
+  <a href="/500greenscape/work.html">Work</a>
+  <a href="/500greenscape/contact.html" class="nav-btn">Get Quote</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -247,4 +254,4 @@ els.forEach(el=>obs.observe(el));
 </script>
 
 </body>
-</html>
+</html
