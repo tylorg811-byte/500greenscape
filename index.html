@@ -14,7 +14,6 @@
 body{
   font-family:'Montserrat',sans-serif;
   background:#f6f8f5;
-  overflow-x:hidden;
 }
 
 /* NAV */
@@ -23,8 +22,7 @@ nav{
   top:0;
   width:100%;
   height:70px;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(10px);
+  background:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -36,9 +34,7 @@ nav{
 .logo{
   font-size:1.5rem;
   font-weight:800;
-  background:linear-gradient(135deg,#2e7d32,#56ab2f);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#2e7d32;
 }
 
 /* HAMBURGER */
@@ -47,30 +43,24 @@ nav{
   cursor:pointer;
 }
 
-/* MENU */
+/* MENU (HARD FIX) */
 .nav-links{
   position:fixed;
   top:70px;
   left:0;
   width:100%;
   background:white;
-  display:flex;
   flex-direction:column;
   align-items:center;
-  gap:22px;
+  gap:20px;
   padding:25px 0;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
 
-  opacity:0;
-  transform:translateY(-20px);
-  pointer-events:none;
-  transition:0.3s;
+  display:none; /* 🔥 KEY FIX */
 }
 
 .nav-links.active{
-  opacity:1;
-  transform:translateY(0);
-  pointer-events:auto;
+  display:flex; /* 🔥 ONLY SHOW WHEN ACTIVE */
 }
 
 .nav-links a{
@@ -82,11 +72,10 @@ nav{
 
 /* BUTTON */
 .nav-btn{
-  background:linear-gradient(135deg,#56ab2f,#2e7d32);
+  background:#2e7d32;
   color:white;
   padding:12px 24px;
   border-radius:999px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.2);
 }
 
 /* HERO */
@@ -101,7 +90,6 @@ nav{
   overflow:hidden;
 }
 
-/* IMAGE + ZOOM */
 .hero::before{
   content:"";
   position:absolute;
@@ -111,7 +99,6 @@ nav{
   z-index:-2;
 }
 
-/* OVERLAY */
 .hero::after{
   content:"";
   position:absolute;
@@ -120,68 +107,25 @@ nav{
   z-index:-1;
 }
 
-/* TEXT */
 .hero h1{
-  font-size:2.5rem;
-  font-weight:800;
   color:white;
+  font-size:2.5rem;
 }
 
 .hero p{
-  margin:15px 0;
   color:white;
+  margin:15px 0;
 }
 
-/* BUTTON */
 .btn{
-  background:linear-gradient(135deg,#56ab2f,#2e7d32);
+  background:#2e7d32;
   color:white;
   padding:14px 30px;
   border-radius:999px;
   text-decoration:none;
-  font-weight:600;
-  display:inline-block;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* SERVICES */
-section{
-  padding:70px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-h2{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 /* ANIMATION */
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-.fade.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ZOOM */
 @keyframes zoom{
   from{transform:scale(1);}
   to{transform:scale(1.1);}
@@ -215,52 +159,17 @@ h2{
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="fade">
-  <h2>Our Services</h2>
-
-  <div class="services">
-    <div class="card fade">
-      <h3>Lawn Care</h3>
-      <p>Weekly mowing and maintenance.</p>
-    </div>
-
-    <div class="card fade">
-      <h3>Landscape Design</h3>
-      <p>Custom outdoor transformations.</p>
-    </div>
-
-    <div class="card fade">
-      <h3>Yard Cleanup</h3>
-      <p>Full cleanups and refresh.</p>
-    </div>
-  </div>
-</section>
-
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 
-/* 🔥 CLOSE MENU ON CLICK */
+/* 🔥 FORCE CLOSE MENU ON CLICK */
 document.querySelectorAll("#menu a").forEach(link=>{
   link.addEventListener("click", ()=>{
     document.getElementById("menu").classList.remove("active");
   });
 });
-
-/* FADE ANIMATION */
-const els=document.querySelectorAll(".fade");
-
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
-    }
-  });
-});
-
-els.forEach(el=>obs.observe(el));
 </script>
 
 </body>
