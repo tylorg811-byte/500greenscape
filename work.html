@@ -3,39 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Work</title>
+<title>Our Work | GreenScape</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
+
+nav{position:fixed;top:0;width:100%;height:70px;background:white;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
+.logo{font-weight:800;font-size:1.5rem;color:#2e7d32;}
+.menu-toggle{font-size:1.8rem;cursor:pointer;}
+
+.nav-links{position:fixed;top:70px;width:100%;background:white;display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px 0;display:none;}
+.nav-links.active{display:flex;}
+
+.gallery{
+  padding:100px 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:12px;
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-<div class="logo">GreenScape</div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="work.html">Work</a>
-<a href="contact.html" class="nav-btn">Get Quote</a>
-</div>
+  <div class="logo">GreenScape</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<div class="page-hero">
-<h1>Our Work</h1>
+<div class="nav-links" id="menu">
+  <a href="/500greenscape/index.html">Home</a>
+  <a href="/500greenscape/services.html">Services</a>
+  <a href="/500greenscape/work.html">Work</a>
+  <a href="/500greenscape/contact.html">Get Quote</a>
 </div>
 
-<section class="fade-in">
-<h2>Recent Projects</h2>
-<div class="services">
-<div class="card fade-in"><h3>Backyard Makeover</h3></div>
-<div class="card fade-in"><h3>Front Yard Upgrade</h3></div>
-<div class="card fade-in"><h3>Cleanup Project</h3></div>
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1599696848652-f0ff23bc911f">
+  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+  <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
 </div>
-</section>
 
-<footer>© 2026 GreenScape Landscaping</footer>
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
-<script src="./script.js"></script>
 </body>
 </html>
