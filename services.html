@@ -11,61 +11,102 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
 
+/* NAV */
 nav{
 position:fixed;top:0;width:100%;height:70px;background:white;
 display:flex;justify-content:space-between;align-items:center;
 padding:0 20px;z-index:9999;
 }
-
 .logo{
 font-size:1.5rem;font-weight:800;
 background:linear-gradient(135deg,#2e7d32,#56ab2f);
 -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-
 .menu-toggle{font-size:1.8rem;cursor:pointer;}
 
 .nav-links{
-position:fixed;top:70px;left:0;width:100%;
-background:white;display:none;
-flex-direction:column;align-items:center;
-gap:20px;padding:30px 0;z-index:9998;
+position:fixed;top:70px;width:100%;background:white;
+display:none;flex-direction:column;align-items:center;
+gap:20px;padding:30px 0;
 }
-
 .nav-links.active{display:flex;}
-
-.nav-links a{
-text-decoration:none;color:#222;font-weight:600;font-size:1.2rem;
-}
-
+.nav-links a{color:#222;text-decoration:none;font-weight:600;}
 .nav-btn{
 background:linear-gradient(135deg,#56ab2f,#2e7d32);
-color:white;padding:12px 26px;border-radius:999px;
+color:white;padding:12px 24px;border-radius:999px;
 }
 
+/* HERO */
 .hero{
-height:40vh;
+height:50vh;
+background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
 display:flex;align-items:center;justify-content:center;
-background:url('https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62') center/cover;
 color:white;text-align:center;
+position:relative;
 }
+.hero::after{
+content:"";position:absolute;inset:0;
+background:rgba(0,0,0,0.4);
+}
+.hero h1{position:relative;z-index:2;font-size:2.4rem;}
 
-.hero h1{font-size:2.2rem;}
-
+/* CONTENT */
 .section{
-padding:70px 20px;max-width:1100px;margin:auto;
+padding:70px 20px;
+max-width:1100px;
+margin:auto;
 }
 
+/* SERVICE BLOCK */
 .service{
-background:white;border-radius:12px;
-padding:30px;margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:0.3s;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-bottom:50px;
+align-items:center;
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
 }
 
-.service:hover{transform:translateY(-8px);}
+.service.show{
+opacity:1;
+transform:translateY(0);
+}
 
-.service h3{margin-bottom:10px;}
+.service img{
+width:100%;
+border-radius:12px;
+height:260px;
+object-fit:cover;
+}
+
+.service h3{
+font-size:1.5rem;
+margin-bottom:10px;
+}
+
+.service p{
+color:#555;
+margin-bottom:10px;
+}
+
+/* ALT layout */
+.service.reverse{
+grid-template-columns:1fr 1fr;
+}
+.service.reverse .text{
+order:2;
+}
+
+@media(max-width:768px){
+.service{
+grid-template-columns:1fr;
+}
+.service.reverse .text{
+order:0;
+}
+}
 
 </style>
 </head>
@@ -85,33 +126,53 @@ transition:0.3s;
 </div>
 
 <div class="hero">
-<h1>Our Professional Services</h1>
+<h1>Our Services</h1>
 </div>
 
 <div class="section">
 
 <div class="service">
+<img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
+<div class="text">
 <h3>Lawn Maintenance</h3>
-<p>Weekly mowing, edging, trimming, and consistent care to keep your yard looking perfect year-round.</p>
+<p>Consistent mowing, trimming, edging, and care that keeps your yard sharp and clean year-round.</p>
+<p>Reliable scheduling and attention to detail separate us from the rest.</p>
+</div>
 </div>
 
-<div class="service">
+<div class="service reverse">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<div class="text">
 <h3>Landscape Design</h3>
-<p>Custom-designed outdoor spaces tailored to your home’s style and your personal vision.</p>
+<p>We design outdoor spaces that elevate your home’s appearance and value.</p>
+<p>From simple upgrades to full transformations.</p>
+</div>
 </div>
 
 <div class="service">
-<h3>Full Property Cleanups</h3>
-<p>Seasonal cleanups, debris removal, and complete yard refresh services.</p>
+<img src="https://images.unsplash.com/photo-1598032895397-b9472444bf93">
+<div class="text">
+<h3>Full Yard Cleanups</h3>
+<p>Overgrown, messy, or neglected yard? We bring it back to life fast.</p>
+<p>Perfect for seasonal resets or property preparation.</p>
+</div>
 </div>
 
 </div>
 
 <script>
 function toggleMenu(){
-const menu=document.getElementById("menu");
-menu.classList.toggle("active");
+document.getElementById("menu").classList.toggle("active");
 }
+
+const items=document.querySelectorAll(".service");
+window.addEventListener("scroll",()=>{
+items.forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-80){
+el.classList.add("show");
+}
+});
+});
 </script>
 
 </body>
