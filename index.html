@@ -20,6 +20,7 @@
 body{
   overflow-x:hidden;
   background:#f6f8f5;
+  color:#1f2a1f;
 }
 
 /* NAV */
@@ -27,8 +28,8 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
-  background:rgba(255,255,255,0.9);
+  padding:14px 18px;
+  background:rgba(255,255,255,0.92);
   backdrop-filter:blur(10px);
   position:fixed;
   width:100%;
@@ -44,13 +45,13 @@ nav{
 .nav-links{
   display:flex;
   align-items:center;
-  gap:20px; /* 🔥 FIXED SPACING */
+  gap:16px; /* FIXED spacing */
 }
 
 .nav-links a{
   text-decoration:none;
   color:#1f2a1f;
-  font-size:0.95rem;
+  font-size:0.9rem;
   font-weight:500;
 }
 
@@ -58,10 +59,11 @@ nav{
 .nav-btn{
   background:linear-gradient(135deg,#4CAF50,#2e7d32);
   color:white;
-  padding:10px 16px;
+  padding:9px 14px;
   border-radius:8px;
   font-weight:600;
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+  box-shadow:0 6px 16px rgba(0,0,0,0.2);
+  white-space:nowrap;
 }
 
 /* HERO */
@@ -85,12 +87,12 @@ nav{
   z-index:-2;
 }
 
-/* DARK OVERLAY (BEHIND TEXT ONLY EFFECT) */
+/* DARK OVERLAY (BALANCED) */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.45);
+  background:rgba(0,0,0,0.35);
   z-index:-1;
 }
 
@@ -102,33 +104,33 @@ nav{
 
 /* TEXT */
 .hero h1{
-  font-size:2.5rem;
+  font-size:2.6rem;
   color:#fff;
-  text-shadow:0 6px 30px rgba(0,0,0,0.9);
+  text-shadow:0 6px 25px rgba(0,0,0,0.9);
 }
 
 .hero p{
   margin:15px 0;
-  font-size:1.1rem;
+  font-size:1.15rem;
   color:#fff;
-  text-shadow:0 4px 20px rgba(0,0,0,0.8);
+  text-shadow:0 4px 15px rgba(0,0,0,0.8);
 }
 
 /* HERO BUTTON */
 .btn{
   background:linear-gradient(135deg,#4CAF50,#2e7d32);
   color:#fff;
-  padding:14px 28px;
+  padding:14px 26px;
   border-radius:10px;
   text-decoration:none;
   font-weight:600;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
   display:inline-block;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
   transition:0.3s;
 }
 
 .btn:hover{
-  transform:translateY(-3px) scale(1.03);
+  transform:translateY(-3px);
 }
 
 /* SECTION */
@@ -145,10 +147,10 @@ h2{
   font-size:2rem;
 }
 
-/* SERVICES GRID */
+/* SERVICES */
 .services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
 }
 
@@ -158,29 +160,25 @@ h2{
   padding:25px;
   border-radius:12px;
   box-shadow:0 8px 25px rgba(0,0,0,0.08);
-  text-align:left;
   transition:0.3s;
 }
 
-/* HOVER EFFECT */
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* ICON STYLE */
 .card h3{
-  margin-bottom:10px;
   color:#2e7d32;
+  margin-bottom:10px;
 }
 
-/* TEXT */
 .card p{
   color:#555;
   line-height:1.5;
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 .fade-in{
   opacity:0;
   transform:translateY(30px);
@@ -230,17 +228,17 @@ h2{
 
     <div class="card fade-in">
       <h3>🌿 Lawn Care</h3>
-      <p>Weekly mowing, trimming, and edging to keep your lawn looking clean and professionally maintained year-round.</p>
+      <p>Weekly mowing, trimming, and edging to keep your lawn looking sharp and professionally maintained.</p>
     </div>
 
     <div class="card fade-in">
       <h3>🏡 Landscape Design</h3>
-      <p>Custom outdoor transformations designed to increase curb appeal and make your home stand out in your neighborhood.</p>
+      <p>Custom outdoor designs that boost curb appeal and transform your space into something you’re proud of.</p>
     </div>
 
     <div class="card fade-in">
       <h3>🍂 Yard Cleanup</h3>
-      <p>Seasonal cleanups including leaf removal, debris clearing, and full yard refreshes to restore your space.</p>
+      <p>Full property cleanups including debris removal, leaf clearing, and seasonal refreshes.</p>
     </div>
 
   </div>
