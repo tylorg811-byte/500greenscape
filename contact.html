@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Contact | GreenScape Landscaping</title>
-  <meta name="description" content="Get a free landscaping quote today.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+<link rel="stylesheet" href="index.html">
 </head>
 
 <body>
 
 <nav>
-  <div><strong>GreenScape</strong></div>
-
-  <div>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="work.html">Work</a>
-    <a href="contact.html">Contact</a>
-  </div>
+<div class="logo">GreenScape</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="work.html">Work</a>
+<a href="contact.html" class="nav-btn">Get Quote</a>
+</div>
 </nav>
 
-<div class="container">
-  <h2>Get a Free Quote</h2>
-
-  <form action="https://formspree.io/f/xwkgbqyo" method="POST">
-
-    <input type="text" name="name" placeholder="Your Name" required>
-
-    <input type="email" name="email" placeholder="Your Email" required>
-
-    <textarea name="message" placeholder="What do you need done?" required></textarea>
-
-    <button class="btn" type="submit">Send Request</button>
-
-  </form>
+<div class="hero" style="height:40vh;">
+<div class="hero-content"><h1>Get a Quote</h1></div>
 </div>
 
-<footer>
-  © 2026 GreenScape Landscaping
-</footer>
+<section>
+<h2>Contact Us</h2>
 
-<script src="./script.js"></script>
+<form style="max-width:500px;margin:auto;display:flex;flex-direction:column;gap:10px;">
+<input placeholder="Name" required>
+<input placeholder="Email" required>
+<textarea placeholder="What do you need?" required></textarea>
+<button class="btn">Send</button>
+</form>
+
+</section>
+
+<footer>© 2026 GreenScape Landscaping</footer>
 
 </body>
 </html>
