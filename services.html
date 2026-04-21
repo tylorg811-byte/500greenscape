@@ -5,7 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services | GreenScape</title>
 
-<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;}
+
+nav{
+  position:fixed;top:0;width:100%;height:70px;background:white;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 20px;z-index:9999;
+}
+
+.logo{
+  font-size:1.5rem;font-weight:800;
+  background:linear-gradient(135deg,#2e7d32,#56ab2f);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+.menu-toggle{font-size:1.8rem;cursor:pointer;}
+
+.nav-links{
+  position:fixed;top:70px;width:100%;background:white;
+  display:none;flex-direction:column;align-items:center;
+  gap:20px;padding:30px 0;z-index:9998;
+}
+
+.nav-links.active{display:flex;}
+
+.nav-links a{text-decoration:none;color:#222;font-weight:600;font-size:1.2rem;}
+
+.nav-btn{
+  background:linear-gradient(135deg,#56ab2f,#2e7d32);
+  color:white;padding:12px 26px;border-radius:999px;
+}
+
+section{
+  padding:110px 20px 60px;
+  max-width:1100px;margin:auto;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;padding:25px;border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+</style>
 </head>
 
 <body>
@@ -22,28 +78,32 @@
   <a href="contact.html" class="nav-btn">Get Quote</a>
 </div>
 
-<section style="padding-top:110px" class="fade">
-  <h2>Our Services</h2>
+<section>
+  <h2 style="text-align:center;margin-bottom:30px;">Our Services</h2>
 
   <div class="services">
-    <div class="card fade">
+    <div class="card">
       <h3>Lawn Maintenance</h3>
-      <p>Routine mowing, edging, and yard care.</p>
+      <p>Routine mowing, edging, and weekly care.</p>
     </div>
 
-    <div class="card fade">
+    <div class="card">
       <h3>Landscape Design</h3>
-      <p>Custom layouts to upgrade curb appeal.</p>
+      <p>Custom outdoor designs to boost curb appeal.</p>
     </div>
 
-    <div class="card fade">
+    <div class="card">
       <h3>Yard Cleanup</h3>
-      <p>Seasonal cleanups and debris removal.</p>
+      <p>Seasonal cleanups and full property refresh.</p>
     </div>
   </div>
 </section>
 
-<script src="./script.js"></script>
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
