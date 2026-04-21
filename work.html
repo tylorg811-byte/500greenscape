@@ -1,124 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Work | GreenScape</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
-
-nav{
-position:fixed;top:0;width:100%;height:70px;background:white;
-display:flex;justify-content:space-between;align-items:center;
-padding:0 20px;z-index:9999;
-}
-
-.logo{
-font-size:1.5rem;font-weight:800;
-background:linear-gradient(135deg,#2e7d32,#56ab2f);
--webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-
-.menu-toggle{font-size:1.8rem;cursor:pointer;}
-
-.nav-links{
-position:fixed;top:70px;width:100%;
-background:white;display:none;
-flex-direction:column;align-items:center;
-gap:20px;padding:30px 0;
-}
-
-.nav-links.active{display:flex;}
-
-.nav-links a{text-decoration:none;color:#222;font-weight:600;font-size:1.2rem;}
-
-.nav-btn{
-background:linear-gradient(135deg,#56ab2f,#2e7d32);
-color:white;padding:12px 26px;border-radius:999px;
-}
-
-/* HERO */
-.hero{
-height:50vh;
-background:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea') center/cover;
-display:flex;align-items:center;justify-content:center;
-color:white;text-align:center;
-}
-
-/* GRID */
-.gallery{
-padding:60px 20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.card p{
-padding:15px;
-}
-
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="logo">GreenScape</div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</nav>
-
-<div class="nav-links" id="menu">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="work.html">Work</a>
-<a href="contact.html" class="nav-btn">Get Quote</a>
-</div>
-
-<div class="hero">
-<h1>See Our Work</h1>
-</div>
-
+<!-- ONLY showing gallery section change -->
 <div class="gallery">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62">
-<p>Modern backyard transformation</p>
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+<p>Fresh sod installation</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
-<p>Full lawn redesign and install</p>
+<img src="https://images.unsplash.com/photo-1558904541-efa843a96f01">
+<p>Clean edging + mulch work</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-<p>Clean and maintained property</p>
+<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
+<p>Backyard transformation</p>
 </div>
 
 </div>
-
-<script>
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-}
-</script>
-
-</body>
-</html>
