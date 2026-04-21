@@ -3,39 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services</title>
+<title>Services | GreenScape</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
+
+/* NAV (SAME AS HOME) */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:70px;
+  background:rgba(255,255,255,0.95);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+  z-index:1000;
+}
+
+.logo{
+  font-size:1.5rem;
+  font-weight:800;
+  background:linear-gradient(135deg,#2e7d32,#56ab2f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.menu-toggle{font-size:1.8rem;cursor:pointer;}
+
+.nav-links{
+  position:fixed;
+  top:70px;
+  width:100%;
+  background:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:22px;
+  padding:25px 0;
+  opacity:0;
+  transform:translateY(-20px);
+  pointer-events:none;
+  transition:0.3s;
+}
+
+.nav-links.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+.nav-btn{
+  background:linear-gradient(135deg,#56ab2f,#2e7d32);
+  color:white;
+  padding:12px 24px;
+  border-radius:999px;
+}
+
+/* HERO */
+.hero{
+  padding:120px 20px 60px;
+  text-align:center;
+  background:linear-gradient(#2e7d32,#4caf50);
+  color:white;
+}
+
+/* SERVICES */
+.section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.service{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.service h3{color:#2e7d32;margin-bottom:10px;}
+.service p{color:#555;}
+</style>
 </head>
 
 <body>
 
 <nav>
-<div class="logo">GreenScape</div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="work.html">Work</a>
-<a href="contact.html" class="nav-btn">Get Quote</a>
-</div>
+  <div class="logo">GreenScape</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<div class="page-hero">
-<h1>Our Services</h1>
+<div class="nav-links" id="menu">
+  <a href="/500greenscape/index.html">Home</a>
+  <a href="/500greenscape/services.html">Services</a>
+  <a href="/500greenscape/work.html">Work</a>
+  <a href="/500greenscape/contact.html" class="nav-btn">Get Quote</a>
 </div>
 
-<section class="fade-in">
-<h2>What We Offer</h2>
-<div class="services">
-<div class="card fade-in"><h3>Lawn Care</h3></div>
-<div class="card fade-in"><h3>Design</h3></div>
-<div class="card fade-in"><h3>Cleanup</h3></div>
+<div class="hero">
+  <h1>Our Services</h1>
+  <p>Professional landscaping tailored to your home</p>
 </div>
-</section>
 
-<footer>© 2026 GreenScape Landscaping</footer>
+<div class="section">
 
-<script src="./script.js"></script>
+  <div class="service">
+    <h3>Lawn Care</h3>
+    <p>Weekly mowing, edging, trimming, and full maintenance.</p>
+  </div>
+
+  <div class="service">
+    <h3>Landscape Design</h3>
+    <p>Custom outdoor layouts that increase property value.</p>
+  </div>
+
+  <div class="service">
+    <h3>Yard Cleanup</h3>
+    <p>Seasonal cleanups, debris removal, and refresh services.</p>
+  </div>
+
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
 </body>
 </html>
