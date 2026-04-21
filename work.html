@@ -5,36 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Work | GreenScape</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
-
-/* NAV SAME */
-nav{position:fixed;top:0;width:100%;height:70px;background:white;display:flex;justify-content:space-between;align-items:center;padding:0 20px;z-index:9999;}
-.logo{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#2e7d32,#56ab2f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.menu-toggle{font-size:1.8rem;cursor:pointer;}
-
-.nav-links{position:fixed;top:70px;width:100%;background:white;display:none;flex-direction:column;align-items:center;gap:20px;padding:25px 0;z-index:9999;}
-.nav-links.active{display:flex;}
-
-.nav-btn{background:linear-gradient(135deg,#56ab2f,#2e7d32);color:white;padding:12px 24px;border-radius:999px;}
-
-.gallery{
-  padding:110px 20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-
-.gallery img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:12px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -51,24 +22,18 @@ nav{position:fixed;top:0;width:100%;height:70px;background:white;display:flex;ju
   <a href="contact.html" class="nav-btn">Get Quote</a>
 </div>
 
-<div class="gallery">
-  <img src="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62">
-  <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
-  <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
-  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-</div>
+<section style="padding-top:110px">
 
-<script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
+  <div class="services">
+    <img class="card fade" src="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62">
+    <img class="card fade" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
+    <img class="card fade" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
+    <img class="card fade" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+  </div>
 
-document.querySelectorAll("#menu a").forEach(link=>{
-  link.addEventListener("click", ()=>{
-    document.getElementById("menu").classList.remove("active");
-  });
-});
-</script>
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
