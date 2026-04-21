@@ -11,10 +11,7 @@
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Montserrat',sans-serif;
-  background:#f6f8f5;
-}
+body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
 
 /* NAV */
 nav{
@@ -27,40 +24,37 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:0 20px;
-  z-index:1000;
+  z-index:9999; /* 🔥 VERY HIGH */
 }
 
-/* LOGO */
 .logo{
   font-size:1.5rem;
   font-weight:800;
   color:#2e7d32;
 }
 
-/* HAMBURGER */
 .menu-toggle{
   font-size:1.8rem;
   cursor:pointer;
 }
 
-/* MENU (HARD FIX) */
+/* MENU */
 .nav-links{
   position:fixed;
   top:70px;
   left:0;
   width:100%;
   background:white;
+  display:none;
   flex-direction:column;
   align-items:center;
   gap:20px;
   padding:25px 0;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-
-  display:none; /* 🔥 KEY FIX */
+  z-index:9999; /* 🔥 ABOVE EVERYTHING */
 }
 
 .nav-links.active{
-  display:flex; /* 🔥 ONLY SHOW WHEN ACTIVE */
+  display:flex;
 }
 
 .nav-links a{
@@ -68,6 +62,8 @@ nav{
   color:#222;
   font-weight:600;
   font-size:1.1rem;
+  z-index:10000;
+  position:relative;
 }
 
 /* BUTTON */
@@ -90,32 +86,34 @@ nav{
   overflow:hidden;
 }
 
+/* IMAGE */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+  z-index:0;
   animation:zoom 20s ease-in-out infinite alternate;
-  z-index:-2;
 }
 
+/* 🔥 OVERLAY FIX */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.45);
-  z-index:-1;
+  z-index:1;
+  pointer-events:none; /* 🔥 CRITICAL FIX */
 }
 
-.hero h1{
-  color:white;
-  font-size:2.5rem;
+/* HERO CONTENT */
+.hero div{
+  position:relative;
+  z-index:2; /* ABOVE overlay */
 }
 
-.hero p{
-  color:white;
-  margin:15px 0;
-}
+.hero h1{color:white;font-size:2.5rem;}
+.hero p{color:white;margin:15px 0;}
 
 .btn{
   background:#2e7d32;
@@ -125,7 +123,7 @@ nav{
   text-decoration:none;
 }
 
-/* ANIMATION */
+/* ZOOM */
 @keyframes zoom{
   from{transform:scale(1);}
   to{transform:scale(1.1);}
@@ -136,13 +134,11 @@ nav{
 
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">GreenScape</div>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- MENU -->
 <div class="nav-links" id="menu">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
@@ -150,11 +146,10 @@ nav{
   <a href="contact.html" class="nav-btn">Get Quote</a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div>
     <h1>A Better Looking Yard</h1>
-    <p>Professional landscaping that keeps your home clean and maintained.</p>
+    <p>Professional landscaping that keeps your home stand out.</p>
     <a href="contact.html" class="btn">Get a Free Quote</a>
   </div>
 </div>
@@ -164,7 +159,7 @@ function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 
-/* 🔥 FORCE CLOSE MENU ON CLICK */
+/* CLOSE MENU ON CLICK */
 document.querySelectorAll("#menu a").forEach(link=>{
   link.addEventListener("click", ()=>{
     document.getElementById("menu").classList.remove("active");
