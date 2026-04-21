@@ -9,99 +9,108 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;}
+body{font-family:'Montserrat',sans-serif;background:#f6f8f5;}
 
 nav{
-  position:fixed;top:0;width:100%;height:70px;background:white;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 20px;z-index:9999;
+position:fixed;top:0;width:100%;height:70px;background:white;
+display:flex;justify-content:space-between;align-items:center;
+padding:0 20px;z-index:9999;
 }
 
 .logo{
-  font-size:1.5rem;font-weight:800;
-  background:linear-gradient(135deg,#2e7d32,#56ab2f);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+font-size:1.5rem;font-weight:800;
+background:linear-gradient(135deg,#2e7d32,#56ab2f);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
 .menu-toggle{font-size:1.8rem;cursor:pointer;}
 
 .nav-links{
-  position:fixed;top:70px;width:100%;background:white;
-  display:none;flex-direction:column;align-items:center;
-  gap:20px;padding:30px 0;z-index:9998;
+position:fixed;top:70px;left:0;width:100%;
+background:white;display:none;
+flex-direction:column;align-items:center;
+gap:20px;padding:30px 0;z-index:9998;
 }
 
 .nav-links.active{display:flex;}
 
-.nav-links a{text-decoration:none;color:#222;font-weight:600;font-size:1.2rem;}
+.nav-links a{
+text-decoration:none;color:#222;font-weight:600;font-size:1.2rem;
+}
 
 .nav-btn{
-  background:linear-gradient(135deg,#56ab2f,#2e7d32);
-  color:white;padding:12px 26px;border-radius:999px;
+background:linear-gradient(135deg,#56ab2f,#2e7d32);
+color:white;padding:12px 26px;border-radius:999px;
 }
 
-section{
-  padding:110px 20px 60px;
-  max-width:1100px;margin:auto;
+.hero{
+height:40vh;
+display:flex;align-items:center;justify-content:center;
+background:url('https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62') center/cover;
+color:white;text-align:center;
 }
 
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+.hero h1{font-size:2.2rem;}
+
+.section{
+padding:70px 20px;max-width:1100px;margin:auto;
 }
 
-.card{
-  background:white;padding:25px;border-radius:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
-  animation:fadeUp 1s ease forwards;
+.service{
+background:white;border-radius:12px;
+padding:30px;margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
-}
+.service:hover{transform:translateY(-8px);}
+
+.service h3{margin-bottom:10px;}
+
 </style>
 </head>
 
 <body>
 
 <nav>
-  <div class="logo">GreenScape</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="logo">GreenScape</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
 <div class="nav-links" id="menu">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="work.html">Work</a>
-  <a href="contact.html" class="nav-btn">Get Quote</a>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="work.html">Work</a>
+<a href="contact.html" class="nav-btn">Get Quote</a>
 </div>
 
-<section>
-  <h2 style="text-align:center;margin-bottom:30px;">Our Services</h2>
+<div class="hero">
+<h1>Our Professional Services</h1>
+</div>
 
-  <div class="services">
-    <div class="card">
-      <h3>Lawn Maintenance</h3>
-      <p>Routine mowing, edging, and weekly care.</p>
-    </div>
+<div class="section">
 
-    <div class="card">
-      <h3>Landscape Design</h3>
-      <p>Custom outdoor designs to boost curb appeal.</p>
-    </div>
+<div class="service">
+<h3>Lawn Maintenance</h3>
+<p>Weekly mowing, edging, trimming, and consistent care to keep your yard looking perfect year-round.</p>
+</div>
 
-    <div class="card">
-      <h3>Yard Cleanup</h3>
-      <p>Seasonal cleanups and full property refresh.</p>
-    </div>
-  </div>
-</section>
+<div class="service">
+<h3>Landscape Design</h3>
+<p>Custom-designed outdoor spaces tailored to your home’s style and your personal vision.</p>
+</div>
+
+<div class="service">
+<h3>Full Property Cleanups</h3>
+<p>Seasonal cleanups, debris removal, and complete yard refresh services.</p>
+</div>
+
+</div>
 
 <script>
 function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
+const menu=document.getElementById("menu");
+menu.classList.toggle("active");
 }
 </script>
 
